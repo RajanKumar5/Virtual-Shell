@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
+import NavbarPage from './NavbarPage';
 
 class LoginPage extends Component {
   render() {
     return (
+      <div>
+        <NavbarPage/>
       <MDBContainer className="mt-5">
         <MDBRow>
           <MDBCol md="6" className="mx-auto">
@@ -40,6 +43,7 @@ class LoginPage extends Component {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
+      </div>
     );
   }
 }
