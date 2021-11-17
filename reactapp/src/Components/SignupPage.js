@@ -7,7 +7,7 @@ class SignupPage extends Component {
         return (
             <div>
                 <NavbarPage />
-                <MDBContainer className="mb-5">
+                <MDBContainer className="mb-5 mt-4">
                     <MDBRow>
                         <MDBCol md="6" className="mx-auto">
                             <MDBCard>
@@ -67,7 +67,6 @@ class SignupPage extends Component {
                     <br />
                 </MDBContainer>
             </div>
-
         );
     }
 }
