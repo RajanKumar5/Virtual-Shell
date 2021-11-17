@@ -86,7 +86,7 @@ class LoginPage extends Component {
                       />
                     </div>
                     <div className="text-center py-4 mt-3">
-                      <MDBBtn href="/userhomecourses" color="cyan" type="submit">
+                      <MDBBtn color="cyan" type="submit">
                         Login
                       </MDBBtn>
                     </div>
