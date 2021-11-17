@@ -47,12 +47,7 @@ class SignupPage extends Component {
                                                 type="password"
                                                 validate
                                             />
-                                            <MDBInput
-                                                icon="calendar"
-                                                group
-                                                type="date"
-                                                validate
-                                            />
+                                            
                                         </div>
                                         <div className="text-center py-4 mt-3">
                                             <MDBBtn color="cyan" type="submit">
