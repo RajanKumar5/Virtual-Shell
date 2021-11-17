@@ -5,8 +5,8 @@
   "// If You want to install mdbreact from our GitLab repository, please replace '5.1.0' with gitURL provided here ->": "git+https://oauth2:<YOUR-TOKEN-GOES-HERE>@git.mdbootstrap.com/mdb/react/re-pro.git",
   "dependencies": {
     "mdbreact": "5.1.0",
-    "react-scripts": "4.0.1",
-    "react-router-dom": "^5.1.2"
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

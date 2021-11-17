@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import NavbarPage from './Components/NavbarPage';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LoginPage from './Components/LoginPage';
-import FooterPage from './Components/FooterPage';
 import SignupPage from './Components/SignupPage';
+import HomePage from './Components/HomePage';
+import FooterPage from './Components/FooterPage';
 
 class App extends Component {
-
   render() {
     return (
       <Router>
-        <div>
-          <NavbarPage/>
-          {/* <LoginPage/> */}
-          <FooterPage/>
-          <SignupPage/>
-        </div>
+
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/login" exact component={LoginPage} />
+          <Route path="/signup" exact component={SignupPage} />
+        </Switch>
+
+        <FooterPage />
       </Router>
     );
   }
