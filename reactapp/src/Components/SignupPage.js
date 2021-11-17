@@ -113,6 +113,7 @@ class SignupPage extends Component {
                                                 group
                                                 type="password"
                                                 validate
+
                                                 onChange={this.valueChange}
                                                 value={confirmPassword}
                                                 required
