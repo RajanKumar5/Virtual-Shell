@@ -17,12 +17,21 @@ class NavbarPage extends Component {
   render() {
     return (
 
-      <MDBNavbar color="black" dark expand="md" className="mb-4">
+      <MDBNavbar color="black" dark expand="md">
         <div className="container">
 
-          <MDBNavbarBrand>
+          {/* <MDBNavbarBrand>
             <strong className="white-text">VIRTUAL SHELL</strong>
-          </MDBNavbarBrand>
+          </MDBNavbarBrand> */}
+
+          <MDBNavbarNav left>
+            <MDBNavItem>
+              <MDBNavLink to={""}>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/High-contrast-utilities-terminal.svg/1024px-High-contrast-utilities-terminal.svg.png" width="25px" height="25px" alt="" />
+                <strong> VIRTUAL SHELL</strong>
+              </MDBNavLink>
+            </MDBNavItem>
+          </MDBNavbarNav>
 
           <MDBNavbarToggler onClick={this.toggleCollapse} />
 
