@@ -30,5 +30,4 @@ public class UserController {
     public boolean findUser(@RequestBody UserModel user) {
         return userService.findUser(user);
     }
-
 }

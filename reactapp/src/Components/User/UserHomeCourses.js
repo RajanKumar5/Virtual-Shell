@@ -1,43 +1,86 @@
-import React from 'react';
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
+import React, { Component } from 'react';
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol, MDBRow } from 'mdbreact';
 import UserNavbar from './UserNavbar';
+import { Card } from 'react-bootstrap'
 
+class UserHomeCourses extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: localStorage.getItem("email")
+        };
+    }
 
-const UserHomeCourses = () => {
-    return (
-        <div>
-            <UserNavbar />
-            <MDBCol style={{ maxWidth: "22rem" }}>
-                <MDBCard>
-                    <MDBCardImage className="img-fluid" src="https://7labs.io/wp-content/uploads/2018/06/Red-Hat-RHCSA-Exam-Questions-2.jpg" class="figure-img img-fluid rounded" alt="RHCSAthumbnail" width="200" height="300"
-                        waves />
-                    <MDBCardBody>
-                        <MDBCardTitle>Red Hat Certified System Administrator - RHCSA</MDBCardTitle>
-                        <MDBCardText>An IT professional who has earned the Red Hat Certified System Administrator
-                            (RHCSA®) is able to perform the core system administration skills required in
-                            Red Hat Enterprise Linux environments.</MDBCardText>
-                        <MDBBtn href="/usercoursepage">Go</MDBBtn>
-                    </MDBCardBody>
-                </MDBCard>
-            </MDBCol>
+    render() {
 
-            <MDBCol style={{ maxWidth: "22rem" }}>
-                <MDBCard>
-                    <MDBCardImage className="img-fluid" src="https://7labs.io/wp-content/uploads/2018/06/Red-Hat-RHCSA-Exam-Questions-2.jpg" class="figure-img img-fluid rounded" alt="RHCEthumbnail" width="300" height="200"
-                        waves />
-                    <MDBCardBody>
-                        <MDBCardTitle>Red Hat Certified Engineer - RHCE</MDBCardTitle>
-                        <MDBCardText>A Red Hat® Certified Engineer (RHCE®) is a Red Hat Certified System Administrator (RHCSA) 
-                                     who is ready tochnologies,
-                                     and apply automation for efficiency and innovation.</MDBCardText>
-                        <MDBBtn href="/usercoursepage">Go</MDBBtn>
-                    </MDBCardBody>
-                </MDBCard>
-            </MDBCol>
+        if (this.state.email === null) {
+            this.props.history.push("/login");
+        }
 
-        </div>
-    )
+        return (
+            <div>
+                <UserNavbar history={this.props.history} />
+                <div className="container">
+                    <MDBRow className="mt-5 mb-5">
+
+                        <MDBCol md="4" className="mb-4">
+                            <Card style={{ width: '20rem' }} className="mb-5">
+                                <Card.Img variant="top" src="https://i.ytimg.com/vi/5RyjP6bsEmc/maxresdefault.jpg" width="250px" height="250px" />
+                                <MDBCardBody>
+                                    <MDBCardTitle>RHCSA</MDBCardTitle>
+                                    <MDBCardText>
+                                        RHCSA Description
+                                    </MDBCardText>
+                                    <MDBBtn href="/usercoursepage" color="blue lighten-2">GO</MDBBtn>
+                                </MDBCardBody>
+                            </Card>
+                        </MDBCol>
+
+                        <MDBCol md="4" className="mb-4">
+                            <Card style={{ width: '20rem' }} className="mb-5">
+                                <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaXTUWNnndAC0QWRPbaJpHikXQFecCqA4Pig&usqp=CAU" width="250px" height="250px" />
+                                <MDBCardBody>
+                                    <MDBCardTitle>RHCE</MDBCardTitle>
+                                    <MDBCardText>
+                                        RHCE Description
+                                    </MDBCardText>
+                                    <MDBBtn href="#?" color="blue lighten-2">GO</MDBBtn>
+                                </MDBCardBody>
+                            </Card>
+                        </MDBCol>
+
+                        <MDBCol md="4" className="mb-4">
+                            <Card style={{ width: '20rem' }} className="mb-5">
+                                <Card.Img variant="top" src="http://2.bp.blogspot.com/-d2g-U4sJp2o/TWyrtXJewlI/AAAAAAAAAJg/hZySJJCnyHE/s1600/rhcsa_logo.jpg" width="250px" height="250px" />
+                                <MDBCardBody>
+                                    <MDBCardTitle>Course 3</MDBCardTitle>
+                                    <MDBCardText>
+                                        Course Description
+                                    </MDBCardText>
+                                    <MDBBtn href="#?" color="blue lighten-2">GO</MDBBtn>
+                                </MDBCardBody>
+                            </Card>
+                        </MDBCol>
+
+                        <MDBCol md="4" className="mb-4">
+                            <Card style={{ width: '20rem' }} className="mb-5">
+                                <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyPZg5D08bXlJFD7kIFVlT-s02NAEu13tCPQ&usqp=CAU" width="250px" height="250px" />
+                                <MDBCardBody>
+                                    <MDBCardTitle>Course 4</MDBCardTitle>
+                                    <MDBCardText>
+                                        Course Description
+                                    </MDBCardText>
+                                    <MDBBtn href="#?" color="blue lighten-2">GO</MDBBtn>
+                                </MDBCardBody>
+                            </Card>
+                        </MDBCol>
+                    </MDBRow>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default UserHomeCourses;
+

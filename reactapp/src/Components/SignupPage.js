@@ -120,7 +120,7 @@ class SignupPage extends Component {
                                             />
                                         </div>
                                         <div className="text-center py-4 mt-3">
-                                            <MDBBtn color="cyan" type="submit">
+                                            <MDBBtn color="blue lighten-2" type="submit">
                                                 Register
                                             </MDBBtn>
                                         </div>
