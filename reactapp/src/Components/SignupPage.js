@@ -23,7 +23,6 @@ class SignupPage extends Component {
                                                 validate
                                                 error="wrong"
                                                 success="right"
-                                                required
                                             />
                                             <MDBInput
                                                 label="Your email"
@@ -33,7 +32,6 @@ class SignupPage extends Component {
                                                 validate
                                                 error="wrong"
                                                 success="right"
-                                                required
                                             />
                                             <MDBInput
                                                 label="Your password"
@@ -41,7 +39,6 @@ class SignupPage extends Component {
                                                 group
                                                 type="password"
                                                 validate
-                                                required
                                             />
                                             <MDBInput
                                                 label="Confirm password"
@@ -49,7 +46,12 @@ class SignupPage extends Component {
                                                 group
                                                 type="password"
                                                 validate
-                                                required
+                                            />
+                                            <MDBInput
+                                                icon="calendar"
+                                                group
+                                                type="date"
+                                                validate
                                             />
                                         </div>
                                         <div className="text-center py-4 mt-3">
