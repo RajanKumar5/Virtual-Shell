@@ -30,7 +30,7 @@ class LoginPage extends Component {
       .then(response => {
         if (response.data) {
           localStorage.setItem("email", this.state.email);
-          alert("Logged in successfully..");
+          this.props.history.push("/userhomecourses");
           this.setState({
             email: "",
             password: "",
@@ -86,7 +86,7 @@ class LoginPage extends Component {
                       />
                     </div>
                     <div className="text-center py-4 mt-3">
-                      <MDBBtn color="cyan" type="submit">
+                      <MDBBtn color="blue lighten-2" type="submit">
                         Login
                       </MDBBtn>
                     </div>

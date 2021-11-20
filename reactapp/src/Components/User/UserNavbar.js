@@ -6,6 +6,12 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 
 class UserNavbar extends Component {
+
+  userLogout = () => {
+    localStorage.removeItem("email");
+    this.props.history.push("/login");
+  }
+
   state = {
     isOpen: false
   };
@@ -26,7 +32,7 @@ class UserNavbar extends Component {
 
           <MDBNavbarNav left>
             <MDBNavItem>
-              <MDBNavLink to={""}>
+              <MDBNavLink to={"/userhomecourses"}>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/High-contrast-utilities-terminal.svg/1024px-High-contrast-utilities-terminal.svg.png" width="25px" height="25px" alt="" />
                 <strong> VIRTUAL SHELL</strong>
               </MDBNavLink>
@@ -40,7 +46,7 @@ class UserNavbar extends Component {
             <MDBNavbarNav right>
 
               <MDBNavItem className="ml-2">
-                <MDBNavLink to={""}>HOME</MDBNavLink>
+                <MDBNavLink to={"/userhomecourses"}>HOME</MDBNavLink>
               </MDBNavItem>
 
               {/* <MDBNavItem className="ml-2">
@@ -52,8 +58,8 @@ class UserNavbar extends Component {
               </MDBNavItem> */}
 
               <MDBNavItem className="ml-2">
-              <MDBNavLink to={"login"}>LOGOUT</MDBNavLink>
-            </MDBNavItem>
+                <MDBNavLink onClick={this.userLogout} to="">LOGOUT</MDBNavLink>
+              </MDBNavItem>
 
             </MDBNavbarNav>
           </MDBCollapse>

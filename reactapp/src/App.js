@@ -6,6 +6,7 @@ import UserCoursePage from './Components/User/UserCoursePage';
 import SignupPage from './Components/SignupPage';
 import HomePage from './Components/HomePage';
 import FooterPage from './Components/FooterPage';
+import TaskPage from './Components/User/TaskPage';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/userhomecourses" exact component={UserHomeCourses} />
           <Route path="/usercoursepage" exact component={UserCoursePage} />
+          <Route path="/task-page" exact component={TaskPage} />
         </Switch>
 
         <FooterPage />
