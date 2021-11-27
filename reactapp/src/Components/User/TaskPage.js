@@ -5,7 +5,20 @@ import './TaskPage.css';
 import UserNavbar from './UserNavbar';
 
 class TaskPage extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: localStorage.getItem("email")
+        };
+    }
+
     render() {
+
+        if (this.state.email === null) {
+            this.props.history.push("/login");
+        }
+
         return (
             <div>
                 <UserNavbar history={this.props.history} />
@@ -39,12 +52,12 @@ class TaskPage extends Component {
                             </dl>
                         </Pane>
                         <div className="ml-3 mr-3">
-                            <iframe src="http://18.222.159.5:8000/" width="100%" height="570px"></iframe>
+                            <iframe src="http://3.16.151.208:8000/" width="100%" height="570px"></iframe>
                         </div>
 
-                        <div className="terminal">
+                        {/* <div className="terminal">
                             <iframe src="https://www.youtube.com/embed/cWDJoK8zw58%22%3E"></iframe>
-                        </div>
+                        </div> */}
                     </SplitPane>
                 </div>
             </div>

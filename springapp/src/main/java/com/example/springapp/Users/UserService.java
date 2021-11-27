@@ -34,4 +34,12 @@ public class UserService {
         }
         return false;
     }
+
+    public boolean isAdminUser(UserModel user){
+        UserModel dataUser = userRepository.findById(user.getEmail()).get();
+        if(dataUser.getRole().equals("admin")){
+            return true;
+        }
+        return false;
+    }
 }

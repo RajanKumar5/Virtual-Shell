@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import {
-  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse
+  MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse
 } from "mdbreact";
-import { BrowserRouter as Router, Link } from 'react-router-dom';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome, faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 
 class NavbarPage extends Component {
   state = {
@@ -40,15 +40,15 @@ class NavbarPage extends Component {
             <MDBNavbarNav right>
 
               <MDBNavItem className="ml-2">
-                <MDBNavLink to={""}>HOME</MDBNavLink>
+                <MDBNavLink to={""}><FontAwesomeIcon icon={faHome}/> HOME</MDBNavLink>
               </MDBNavItem>
 
               <MDBNavItem className="ml-2">
-                <MDBNavLink to={"login"}>LOGIN</MDBNavLink>
+                <MDBNavLink to={"login"}><FontAwesomeIcon icon={faSignInAlt}/> LOGIN</MDBNavLink>
               </MDBNavItem>
 
               <MDBNavItem className="ml-2">
-                <MDBNavLink to={"signup"}>SIGNUP</MDBNavLink>
+                <MDBNavLink to={"signup"}><FontAwesomeIcon icon={faUserPlus}/> SIGNUP</MDBNavLink>
               </MDBNavItem>
 
               {/* <MDBNavItem className="ml-2">

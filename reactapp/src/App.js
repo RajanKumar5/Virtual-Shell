@@ -7,6 +7,10 @@ import SignupPage from './Components/SignupPage';
 import HomePage from './Components/HomePage';
 import FooterPage from './Components/FooterPage';
 import TaskPage from './Components/User/TaskPage';
+import AdminDashboard from './Components/Admin/AdminDashboard';
+import AddCourse from './Components/Admin/AddCourse';
+import AddTask from './Components/Admin/AddTask';
+import EditCourse from './Components/Admin/EditCourse';
 
 class App extends Component {
   render() {
@@ -20,6 +24,11 @@ class App extends Component {
           <Route path="/userhomecourses" exact component={UserHomeCourses} />
           <Route path="/usercoursepage" exact component={UserCoursePage} />
           <Route path="/task-page" exact component={TaskPage} />
+          <Route path="/admin" exact component={AdminDashboard}/>
+          <Route path="/addCourse" exact component={AddCourse}/>
+          <Route path="/addTask" exact component={AddTask}/>
+          <Route path="/editCourse" exact component={EditCourse}/>
+
         </Switch>
 
         <FooterPage />

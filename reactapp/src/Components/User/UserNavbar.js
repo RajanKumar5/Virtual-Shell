@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import {
-  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse
+  MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse
 } from "mdbreact";
-import { BrowserRouter as Router, Link } from 'react-router-dom';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 class UserNavbar extends Component {
 
@@ -46,7 +46,7 @@ class UserNavbar extends Component {
             <MDBNavbarNav right>
 
               <MDBNavItem className="ml-2">
-                <MDBNavLink to={"/userhomecourses"}>HOME</MDBNavLink>
+                <MDBNavLink to={"/userhomecourses"}><FontAwesomeIcon icon={faHome}/> HOME</MDBNavLink>
               </MDBNavItem>
 
               {/* <MDBNavItem className="ml-2">
@@ -58,7 +58,7 @@ class UserNavbar extends Component {
               </MDBNavItem> */}
 
               <MDBNavItem className="ml-2">
-                <MDBNavLink onClick={this.userLogout} to="">LOGOUT</MDBNavLink>
+                <MDBNavLink onClick={this.userLogout} to=""><FontAwesomeIcon icon={faSignOutAlt}/> LOGOUT</MDBNavLink>
               </MDBNavItem>
 
             </MDBNavbarNav>
