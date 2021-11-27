@@ -40,22 +40,21 @@ class UserHomeCourses extends Component {
                 <div className="container">
                     <MDBRow className="mt-5 mb-5">
                         {this.state.courses.length === 0 ?
-                            <MDBCol md="4" className="mb-4">
+                            <MDBCol md="4" className="mb-4 mx-auto">
                                 <Card style={{ width: '20rem' }} className="mb-5">
-                                    <Card.Img variant="top" src="https://i.ytimg.com/vi/5RyjP6bsEmc/maxresdefault.jpg" width="250px" height="250px" />
+                                    <Card.Img variant="top" src="https://unsplash.com/a/img/empty-states/photos.png" width="250px" height="250px" />
                                     <MDBCardBody>
-                                        <MDBCardTitle>RHCSA</MDBCardTitle>
+                                        <MDBCardTitle>Oops, No Course Available</MDBCardTitle>
                                         <MDBCardText>
-                                            RHCSA Description
+                                            Try Again After Some Time
                                         </MDBCardText>
-                                        <MDBBtn onClick={this.gotoCourse} color="blue lighten-2">GO</MDBBtn>
                                     </MDBCardBody>
                                 </Card>
                             </MDBCol>
 
                             :
                             this.state.courses.map((course) => (
-                                <MDBCol md="4" className="mb-4">
+                                <MDBCol md="4" className="mb-4 mx-auto">
                                     <Card style={{ width: '20rem' }} className="mb-5">
                                         <Card.Img variant="top" src={course.courseURL} width="250px" height="250px" />
                                         <MDBCardBody>
