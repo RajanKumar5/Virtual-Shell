@@ -13,13 +13,16 @@ public class UserModel {
     private String fullName;
     private String password;
 
-    public UserModel(String email, String fullName, String password) {
+    private String role="user";
+
+    public UserModel() {
+    }
+
+    public UserModel(String email, String fullName, String password, String role) {
         this.email = email;
         this.fullName = fullName;
         this.password = password;
-    }
-
-    public UserModel() {
+        this.role = role;
     }
 
     public String getEmail() {
@@ -44,6 +47,14 @@ public class UserModel {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
 }

@@ -30,4 +30,9 @@ public class UserController {
     public boolean findUser(@RequestBody UserModel user) {
         return userService.findUser(user);
     }
+
+    @PostMapping("/adminLogin")
+    public boolean isAdminUser(@RequestBody UserModel user){
+        return userService.isAdminUser(user);
+    }
 }

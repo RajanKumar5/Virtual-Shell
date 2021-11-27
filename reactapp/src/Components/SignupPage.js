@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
 import NavbarPage from './NavbarPage';
 import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 
 class SignupPage extends Component {
 
@@ -45,6 +47,7 @@ class SignupPage extends Component {
                         password: "",
                         confirmPassword: ""
                     });
+                    this.props.history.push("/login");
                 }
                 else {
                     alert("Account already exists with this email, please login!");
@@ -121,7 +124,7 @@ class SignupPage extends Component {
                                         </div>
                                         <div className="text-center py-4 mt-3">
                                             <MDBBtn color="blue lighten-2" type="submit">
-                                                Register
+                                                <FontAwesomeIcon icon={faUserPlus}/> Register
                                             </MDBBtn>
                                         </div>
                                     </form>

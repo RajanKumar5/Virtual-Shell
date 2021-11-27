@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
 import NavbarPage from './NavbarPage';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons'
+
 
 class LoginPage extends Component {
 
@@ -29,12 +32,25 @@ class LoginPage extends Component {
     axios.post("http://localhost:8080/login", user)
       .then(response => {
         if (response.data) {
-          localStorage.setItem("email", this.state.email);
-          this.props.history.push("/userhomecourses");
-          this.setState({
-            email: "",
-            password: "",
-          });
+          axios.post("http://localhost:8080/adminLogin", user)
+            .then(response => {
+              if (response.data) {
+                localStorage.setItem("email", this.state.email);
+                this.props.history.push("/admin");
+                this.setState({
+                  email: "",
+                  password: "",
+                });
+              }
+              else {
+                localStorage.setItem("email", this.state.email);
+                this.props.history.push("/userhomecourses");
+                this.setState({
+                  email: "",
+                  password: "",
+                });
+              }
+            });
         }
         else {
           alert("Invalid username or password..");
@@ -43,7 +59,6 @@ class LoginPage extends Component {
   }
 
   render() {
-
     const {
       email, password
     } = this.state
@@ -87,7 +102,7 @@ class LoginPage extends Component {
                     </div>
                     <div className="text-center py-4 mt-3">
                       <MDBBtn color="blue lighten-2" type="submit">
-                        Login
+                        <FontAwesomeIcon icon={faSignInAlt} /> Login
                       </MDBBtn>
                     </div>
                   </form>
@@ -97,7 +112,6 @@ class LoginPage extends Component {
           </MDBRow>
         </MDBContainer>
       </div>
-
     );
   }
 }
