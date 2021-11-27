@@ -51,6 +51,14 @@ class NavbarPage extends Component {
                 <MDBNavLink to={"signup"}>SIGNUP</MDBNavLink>
               </MDBNavItem>
 
+              <MDBNavItem className="ml-2">
+                <MDBNavLink to={"/results"}>TRACK PROGRESS</MDBNavLink>
+              </MDBNavItem>
+
+              <MDBNavItem className="ml-2">
+                <MDBNavLink to={"/changepass"}>RESET PASSWORD</MDBNavLink>
+              </MDBNavItem>
+
               {/* <MDBNavItem className="ml-2">
               <MDBNavLink to="#!">LOGOUT</MDBNavLink>
             </MDBNavItem> */}

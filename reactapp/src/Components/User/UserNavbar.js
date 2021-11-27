@@ -49,6 +49,7 @@ class UserNavbar extends Component {
                 <MDBNavLink to={"/userhomecourses"}>HOME</MDBNavLink>
               </MDBNavItem>
 
+
               {/* <MDBNavItem className="ml-2">
                 <MDBNavLink to={"login"}>LOGIN</MDBNavLink>
               </MDBNavItem>
