@@ -15,15 +15,20 @@ public class CourseModel {
     private String courseName;
     private String courseDescription;
     private String courseURL;
+    private String bookURL;
+    private String terminalURL;
 
     public CourseModel() {
     }
 
-    public CourseModel(long courseId, String courseName, String courseDescription, String courseURL) {
+    public CourseModel(long courseId, String courseName, String courseDescription, String courseURL, String bookURL,
+            String terminalURL) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.courseDescription = courseDescription;
         this.courseURL = courseURL;
+        this.bookURL = bookURL;
+        this.terminalURL = terminalURL;
     }
 
     public long getCourseId() {
@@ -56,6 +61,22 @@ public class CourseModel {
 
     public void setCourseURL(String courseURL) {
         this.courseURL = courseURL;
+    }
+
+    public String getBookURL() {
+        return bookURL;
+    }
+
+    public void setBookURL(String bookURL) {
+        this.bookURL = bookURL;
+    }
+
+    public String getTerminalURL() {
+        return terminalURL;
+    }
+
+    public void setTerminalURL(String terminalURL) {
+        this.terminalURL = terminalURL;
     }
 
 }

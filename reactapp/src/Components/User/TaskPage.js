@@ -3,14 +3,38 @@ import React, { Component } from 'react';
 import SplitPane, { Pane } from "react-split-pane";
 import './TaskPage.css';
 import UserNavbar from './UserNavbar';
+import axios from 'axios';
 
 class TaskPage extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            email: localStorage.getItem("email")
+            email: localStorage.getItem("email"),
+            courseId: "",
+            courseName: "",
+            courseDescription: "",
+            courseURL: "",
+            bookURL: "",
+            terminalURL: ""
         };
+    }
+
+    componentDidMount() {
+        const courseId = +this.props.match.params.courseId;
+        if (courseId) {
+            axios.get("http://localhost:8080/courses/" + courseId)
+                .then(response => {
+                    this.setState({
+                        courseId: response.data.courseId,
+                        courseName: response.data.courseName,
+                        courseDescription: response.data.courseDescription,
+                        courseURL: response.data.courseURL,
+                        bookURL: response.data.bookURL,
+                        terminalURL: response.data.terminalURL
+                    });
+                });
+        }
     }
 
     render() {
@@ -25,39 +49,17 @@ class TaskPage extends Component {
                 <div className="mt-2">
                     <SplitPane defaultSize="30%" split="vertical">
                         <Pane initialSize="200px">
-                            <MDBTypography className="ml-2 mr-2" note noteColor='warning' noteTitle='Note warning: '>
-                                Please turn-off the instance if not in use.
-                            </MDBTypography>
 
-                            <MDBTypography className="ml-2 mr-2" note noteColor='secondary' noteTitle='Task-1: '>
+                            {/* Book URL */}
+                            <object className="container" height="600px" width="100%" data={this.state.bookURL} type="application/pdf">   </object>
 
-                            </MDBTypography>
-
-                            <dl className="row ml-2 mr-2">
-                                <dt className="col-sm-3">Description</dt>
-                                <dd className="col-sm-9">
-                                    You should configure your physical server and three virtual machines as follows (where 'x' is your station number):  Networks:  Local network 192.168.4.0/22 (255.255.252.0), GW 192.168.4.1, DNS 192.168.7.254 Trusted subnet 192.168.5.0/24 (255.255.255.0) Untrusted subnet 192.168.4.0/24 (255.255.255.0) An installation tree has been made available to you at ftp://192.168.5.200/pub/rhel6 which can serve as the basis for a yum repository.
-                                </dd>
-
-                                <dt className="col-sm-3">Networks</dt>
-                                <dd className="col-sm-9">
-                                    Local network
-                                    192.168.4.0/22 (255.255.252.0), GW 192.168.4.1, DNS 192.168.7.254
-                                    Trusted subnet
-                                    192.168.5.0/24 (255.255.255.0)
-                                    Untrusted subnet
-                                    192.168.4.0/24 (255.255.255.0)
-                                    An installation tree has been made available to you at ftp://192.168.5.200/pub/rhel6 which can serve as the basis for a yum repository.
-                                </dd>
-                            </dl>
                         </Pane>
                         <div className="ml-3 mr-3">
-                            <iframe src="http://3.16.151.208:8000/" width="100%" height="570px"></iframe>
+
+                            {/* Terminal URL */}
+                            <iframe src={this.state.terminalURL} width="100%" height="600px"></iframe>
                         </div>
 
-                        {/* <div className="terminal">
-                            <iframe src="https://www.youtube.com/embed/cWDJoK8zw58%22%3E"></iframe>
-                        </div> */}
                     </SplitPane>
                 </div>
             </div>

@@ -5,7 +5,7 @@ class AddTask extends Component {
     render() {
         return (
             <div>
-                <AdminNav history={this.props.history}/>
+                <AdminNav history={this.props.history} />
             </div>
         );
     }

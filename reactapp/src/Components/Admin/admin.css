@@ -2,8 +2,12 @@
     transform: translatey(-10px);
 }
 
-/* .dashButton{
+.dashButton{
     height: 100px;
     text-align: center;
-    line-height: 50px;
-} */
+    line-height: 60px;
+}
+
+.adminText{
+    font-size: large;
+}

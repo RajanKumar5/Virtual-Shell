@@ -10,10 +10,12 @@ class AddCourse extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: "",
+            email: localStorage.getItem("email"),
             courseName: "",
             courseDescription: "",
-            courseURL: ""
+            courseURL: "",
+            bookURL: "",
+            terminalURL: ""
         };
     }
 
@@ -28,10 +30,12 @@ class AddCourse extends Component {
         const course = {
             courseName: this.state.courseName,
             courseDescription: this.state.courseDescription,
-            courseURL: this.state.courseURL
+            courseURL: this.state.courseURL,
+            bookURL: this.state.bookURL,
+            terminalURL: this.state.terminalURL
         }
         event.preventDefault();
-
+        
         axios.post("http://localhost:8080/createCourse", course)
         .then(response =>{
             if (response.data) {
@@ -39,8 +43,11 @@ class AddCourse extends Component {
                 this.setState({
                     courseName: "",
                     courseDescription: "",
-                    courseURL: ""
+                    courseURL: "",
+                    bookURL: "",
+                    terminalURL: ""
                 });
+                this.props.history.push("/manageCourses");
             }
             else {
                 alert("Something Went Wrong!");
@@ -51,14 +58,18 @@ class AddCourse extends Component {
 
     render() {
 
+        if (this.state.email === null) {
+            this.props.history.push("/login");
+        }
+
         const {
-            courseName, courseDescription, courseURL
+            courseName, courseDescription, courseURL, bookURL, terminalURL
         } = this.state
         
         return (
             <div>
                 <AdminNav history={this.props.history} />
-                <MDBContainer className="mt-5">
+                <MDBContainer className="mt-4 mb-5">
                     <MDBRow>
                         <MDBCol md="6" className="mx-auto">
                             <MDBCard>
@@ -97,6 +108,26 @@ class AddCourse extends Component {
                                                 onChange={this.valueChange}
                                                 value={courseURL}
                                             />
+                                            <MDBInput
+                                                label="Book URL"
+                                                group
+                                                name="bookURL"
+                                                type="text"
+                                                validate
+                                                required
+                                                onChange={this.valueChange}
+                                                value={bookURL}
+                                            />
+                                            <MDBInput
+                                                label="Terminal URL"
+                                                group
+                                                name="terminalURL"
+                                                type="text"
+                                                validate
+                                                required
+                                                onChange={this.valueChange}
+                                                value={terminalURL}
+                                            />
                                         </div>
                                         <div className="text-center py-4 mt-3">
                                             <MDBBtn color="blue lighten-2" type="submit">
@@ -109,6 +140,7 @@ class AddCourse extends Component {
                         </MDBCol>
                     </MDBRow>
                 </MDBContainer>
+                <br/>
             </div>
         );
     }

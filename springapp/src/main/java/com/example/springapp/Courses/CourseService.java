@@ -28,4 +28,28 @@ public class CourseService {
         return courses;
     }
 
+    public CourseModel getCourseDetails(Long courseId){
+        return courseRepository.findById(courseId).get();
+    }
+
+    public boolean deleteCourse(Long courseId){
+        try{
+            courseRepository.deleteById(courseId);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
+
+    public boolean updateCourse(CourseModel course){
+        try{
+            courseRepository.save(course);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
+
 }

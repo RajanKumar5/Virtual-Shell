@@ -3,7 +3,7 @@ import {
   MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse
 } from "mdbreact";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faExchangeAlt, faHome, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 class UserNavbar extends Component {
 
@@ -18,6 +18,10 @@ class UserNavbar extends Component {
 
   toggleCollapse = () => {
     this.setState({ isOpen: !this.state.isOpen });
+  }
+
+  changePassword = () => {
+    this.props.history.push("/changePassword");
   }
 
   render() {
@@ -46,7 +50,7 @@ class UserNavbar extends Component {
             <MDBNavbarNav right>
 
               <MDBNavItem className="ml-2">
-                <MDBNavLink to={"/userhomecourses"}><FontAwesomeIcon icon={faHome}/> HOME</MDBNavLink>
+                <MDBNavLink to={"/userhomecourses"}><FontAwesomeIcon icon={faHome} /> HOME</MDBNavLink>
               </MDBNavItem>
 
               {/* <MDBNavItem className="ml-2">
@@ -56,9 +60,12 @@ class UserNavbar extends Component {
               <MDBNavItem className="ml-2">
                 <MDBNavLink to={"signup"}>SIGNUP</MDBNavLink>
               </MDBNavItem> */}
+              <MDBNavItem className="ml-2">
+                <MDBNavLink to={"/updatePassword"}><FontAwesomeIcon icon={faExchangeAlt} /> CHANGE PASSWORD</MDBNavLink>
+              </MDBNavItem>
 
               <MDBNavItem className="ml-2">
-                <MDBNavLink onClick={this.userLogout} to=""><FontAwesomeIcon icon={faSignOutAlt}/> LOGOUT</MDBNavLink>
+                <MDBNavLink onClick={this.userLogout} to=""><FontAwesomeIcon icon={faSignOutAlt} /> LOGOUT</MDBNavLink>
               </MDBNavItem>
 
             </MDBNavbarNav>

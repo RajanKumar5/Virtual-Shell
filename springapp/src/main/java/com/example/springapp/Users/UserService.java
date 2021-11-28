@@ -42,4 +42,34 @@ public class UserService {
         }
         return false;
     }
+
+    public boolean deleteUser(String userId){
+        try{
+            userRepository.deleteById(userId);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
+
+    public boolean updateUser(UserModel user){
+        try{
+            userRepository.save(user);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
+
+    public UserModel getUserDetails(String userId){
+        try{
+            return userRepository.findById(userId).get();
+        }
+        catch(Exception e){
+            return null;
+        }
+        
+    }
 }

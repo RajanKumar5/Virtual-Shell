@@ -14,8 +14,8 @@ class UserHomeCourses extends Component {
         };
     }
 
-    gotoCourse = () => {
-        this.props.history.push("/usercoursepage");
+    gotoCourse = (courseId) => {
+        this.props.history.push("/task-page/" + courseId);
     }
 
     componentDidMount() {
@@ -54,7 +54,7 @@ class UserHomeCourses extends Component {
 
                             :
                             this.state.courses.map((course) => (
-                                <MDBCol md="4" className="mb-4 mx-auto">
+                                <MDBCol md="4" className="mb-4 mx-auto" key={course.courseId}>
                                     <Card style={{ width: '20rem' }} className="mb-5">
                                         <Card.Img variant="top" src={course.courseURL} width="250px" height="250px" />
                                         <MDBCardBody>
@@ -62,7 +62,7 @@ class UserHomeCourses extends Component {
                                             <MDBCardText>
                                                 {course.courseDescription}
                                             </MDBCardText>
-                                            <MDBBtn onClick={this.gotoCourse} color="blue lighten-2">GO</MDBBtn>
+                                            <MDBBtn onClick={this.gotoCourse.bind(this, course.courseId)} color="blue lighten-2">GO</MDBBtn>
                                         </MDBCardBody>
                                     </Card>
                                 </MDBCol>
