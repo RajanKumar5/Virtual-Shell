@@ -3,7 +3,7 @@ import AdminNav from './AdminNav';
 import { MDBCard, MDBCardBody, MDBCol, MDBRow, MDBContainer } from "mdbreact";
 import './admin.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook, faEdit, faExchangeAlt, faFolderPlus, faUserEdit } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faEdit, faExchangeAlt, faUserEdit } from '@fortawesome/free-solid-svg-icons'
 
 class AdminDashboard extends Component {
 
@@ -18,16 +18,16 @@ class AdminDashboard extends Component {
         alert("message pop-up");
     }
 
-    addCourse = () =>{
-        this.props.history.push("/addCourse")
-    } 
-
-    addTask = () =>{
-        this.props.history.push("/addTask")
+    manageCourses = () => {
+        this.props.history.push("/manageCourses");
     }
 
-    editCourse = () =>{
-        this.props.history.push("/editCourse")
+    manageUsers = () => {
+        this.props.history.push("/manageUsers");
+    }
+
+    changePassword = () => {
+        this.props.history.push("/changePassword");
     }
 
     render() {
@@ -41,50 +41,30 @@ class AdminDashboard extends Component {
                 <AdminNav history={this.props.history} />
                 <MDBContainer className="mt-4 mb-5">
                     <MDBRow>
-                        <MDBCol md="6" className="mb-4">
-                            <MDBCard color="info-color" text="white" className="text-center dashButton" onClick={this.addCourse}>
+                        <MDBCol md="6" className="mb-4 mx-auto">
+                            <MDBCard color="primary-color" text="white" className="text-center dashButton" onClick={this.manageCourses}>
                                 <MDBCardBody>
-                                    <strong><FontAwesomeIcon icon={faBook} /> ADD NEW COURSE</strong>
+                                    <strong><p className="adminText"><FontAwesomeIcon icon={faBook} /> MANAGE COURSES</p></strong>
                                 </MDBCardBody>
                             </MDBCard>
                         </MDBCol>
+                    </MDBRow>
 
-                        <MDBCol md="6" className="mb-4">
-                            <MDBCard color="info-color" text="white" className="text-center dashButton" onClick={this.addTask}>
+                    <MDBRow>
+                        <MDBCol md="6" className="mb-4 mx-auto">
+                            <MDBCard color="primary-color" text="white" className="text-center dashButton" onClick={this.manageUsers}>
                                 <MDBCardBody>
-                                    <strong><FontAwesomeIcon icon={faFolderPlus} /> ADD NEW TASK</strong>
+                                    <strong><p className="adminText"><FontAwesomeIcon icon={faUserEdit} /> MANAGE USERS</p></strong>
                                 </MDBCardBody>
                             </MDBCard>
                         </MDBCol>
+                    </MDBRow>
 
-                        <MDBCol md="6" className="mb-4">
-                            <MDBCard color="info-color" text="white" className="text-center dashButton" onClick={this.editCourse}>
+                    <MDBRow>
+                        <MDBCol md="6" className="mb-4 mx-auto">
+                            <MDBCard color="primary-color" text="white" className="text-center dashButton">
                                 <MDBCardBody>
-                                    <strong><FontAwesomeIcon icon={faEdit} /> EDIT COURSE</strong>
-                                </MDBCardBody>
-                            </MDBCard>
-                        </MDBCol>
-
-                        <MDBCol md="6" className="mb-4">
-                            <MDBCard color="info-color" text="white" className="text-center dashButton">
-                                <MDBCardBody>
-                                    <strong><FontAwesomeIcon icon={faEdit} /> EDIT TASK</strong>
-                                </MDBCardBody>
-                            </MDBCard>
-                        </MDBCol>
-
-                        <MDBCol md="6" className="mb-4">
-                            <MDBCard color="info-color" text="white" className="text-center dashButton">
-                                <MDBCardBody>
-                                    <strong><FontAwesomeIcon icon={faUserEdit} /> MANAGE USERS</strong>
-                                </MDBCardBody>
-                            </MDBCard>
-                        </MDBCol>
-
-                        <MDBCol md="6" className="mb-4">
-                            <MDBCard color="info-color" text="white" className="text-center dashButton">
-                                <MDBCardBody>
-                                    <strong><FontAwesomeIcon icon={faExchangeAlt} /> CHANGE PASSWORD</strong>
+                                    <strong><p className="adminText" onClick={this.changePassword}><FontAwesomeIcon icon={faExchangeAlt} /> CHANGE PASSWORD</p></strong>
                                 </MDBCardBody>
                             </MDBCard>
                         </MDBCol>
