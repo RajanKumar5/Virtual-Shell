@@ -35,7 +35,10 @@ class ChangePassword extends Component {
     changePassword = (event) => {
         event.preventDefault();
 
-        if(this.state.currentPassword !== this.state.password){
+        var md5 = require('md5');
+        var encryptePassword = md5(this.state.currentPassword);
+
+        if(encryptePassword !== this.state.password){
             alert("Invalid Current Password!");
             this.setState({
                 currentPassword: "",
@@ -61,7 +64,7 @@ class ChangePassword extends Component {
                         newPassword: "",
                         password: this.state.newPassword
                     });
-                    this.props.history.push("/changePassword");
+                    this.props.history.push("/admin");
                 }
                 else {
                     alert("Something Went Wrong!");

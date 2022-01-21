@@ -3,6 +3,8 @@ package com.example.springapp.Users;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.springapp.PasswordEncryption.MD5Utils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,8 @@ public class UserService {
 
     public boolean addUser(UserModel user){
         if (userRepository.findById(user.getEmail()).isEmpty()) {
+            String encryptedPassword = MD5Utils.encryptPassword(user.getPassword());
+            user.setPassword(encryptedPassword);
             userRepository.save(user);
             return true;
         }
@@ -27,17 +31,21 @@ public class UserService {
 
     public boolean findUser(UserModel user) {
         if (!userRepository.findById(user.getEmail()).isEmpty()) {
-            UserModel dataUser = userRepository.findById(user.getEmail()).get();
-            String username = dataUser.getEmail();
-            String password = dataUser.getPassword();
+            String encryptedPassword = MD5Utils.encryptPassword(user.getPassword());
+            user.setPassword(encryptedPassword);
+            UserModel db = userRepository.findById(user.getEmail()).get();
+            String username = db.getEmail();
+            String password = db.getPassword();
             return username.equals(user.getEmail()) && password.equals(user.getPassword());
         }
         return false;
     }
 
     public boolean isAdminUser(UserModel user){
-        UserModel dataUser = userRepository.findById(user.getEmail()).get();
-        if(dataUser.getRole().equals("admin")){
+        String encryptedPassword = MD5Utils.encryptPassword(user.getPassword());
+        user.setPassword(encryptedPassword);
+        UserModel db = userRepository.findById(user.getEmail()).get();
+        if(db.getRole().equals("admin")){
             return true;
         }
         return false;
@@ -55,6 +63,11 @@ public class UserService {
 
     public boolean updateUser(UserModel user){
         try{
+            UserModel db = userRepository.findById(user.getEmail()).get();
+            if(!db.getPassword().equals(user.getPassword())){
+                String encryptedPassword = MD5Utils.encryptPassword(user.getPassword());
+                user.setPassword(encryptedPassword);
+            }
             userRepository.save(user);
             return true;
         }

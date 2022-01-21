@@ -8,6 +8,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
     "axios": "^0.24.0",
+    "md5": "^2.3.0",
     "mdbreact": "5.1.0",
     "react-bootstrap": "^2.0.2",
     "react-pdf": "^5.5.0",

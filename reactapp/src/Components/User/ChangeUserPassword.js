@@ -35,13 +35,16 @@ class ChangeUserPassword extends Component {
     changePassword = (event) => {
         event.preventDefault();
 
-        if(this.state.currentPassword !== this.state.password){
+        var md5 = require('md5');
+        var encryptePassword = md5(this.state.currentPassword);
+        
+        if(encryptePassword !== this.state.password){
             alert("Invalid Current Password!");
             this.setState({
                 currentPassword: "",
                 newPassword: "",
             });
-            this.props.history.push("/changePassword");
+            this.props.history.push("/updatePassword");
             return;
         }
 
@@ -61,11 +64,11 @@ class ChangeUserPassword extends Component {
                         newPassword: "",
                         password: this.state.newPassword
                     });
-                    this.props.history.push("/changePassword");
+                    this.props.history.push("/userhomecourses");
                 }
                 else {
                     alert("Something Went Wrong!");
-                    this.props.history.push("/changePassword");
+                    this.props.history.push("/updatePassword");
                 }
             });
     }
